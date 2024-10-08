@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 class RetrieveView : UIView {
+    private lazy var lblTitle = UILabel().then { lbl in
+        lbl.text = "Keychain 검색"
+        lbl.font = .systemFont(ofSize: 32, weight: .bold)
+        lbl.textColor = .black
+    }
+    
     private lazy var lbl = UILabel().then { lbl in
         lbl.text = "비밀번호를 찾고 싶은 이메일 입력해주세요"
         lbl.font = .systemFont(ofSize: 16)
@@ -79,6 +85,12 @@ class RetrieveView : UIView {
     private func setUI(){
         self.addSubview(grpRetrieve)
         self.addSubview(btnRetrieve)
+        self.addSubview(lblTitle)
+        
+        lblTitle.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(70)
+        }
         
         txtRetrievePwd.snp.makeConstraints { make in
             make.width.equalToSuperview()

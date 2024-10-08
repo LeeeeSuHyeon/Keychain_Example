@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 class DeleteView : UIView {
+    private lazy var lblTitle = UILabel().then { lbl in
+        lbl.text = "Keychain 삭제"
+        lbl.font = .systemFont(ofSize: 32, weight: .bold)
+        lbl.textColor = .black
+    }
+    
     private lazy var lbl = UILabel().then { lbl in
         lbl.text = "Keychain을 삭제 하고 싶은 이메일 입력해주세요"
         lbl.font = .systemFont(ofSize: 16)
@@ -66,6 +72,12 @@ class DeleteView : UIView {
     private func setUI(){
         self.addSubview(grpDelete)
         self.addSubview(btnDelete)
+        self.addSubview(lblTitle)
+        
+        lblTitle.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(70)
+        }
 
         txtId.snp.makeConstraints { make in
             make.width.equalToSuperview()

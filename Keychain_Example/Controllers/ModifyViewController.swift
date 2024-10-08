@@ -8,11 +8,12 @@
 import UIKit
 
 class ModifyViewController: UIViewController {
+    let modifyView = ModifyView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.view = modifyView
     }
     
 

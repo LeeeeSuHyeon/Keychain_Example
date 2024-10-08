@@ -10,6 +10,12 @@ import SnapKit
 import Then
 
 class AddView: UIView {
+    private lazy var lblTitle = UILabel().then { lbl in
+        lbl.text = "Keychain 추가"
+        lbl.font = .systemFont(ofSize: 32, weight: .bold)
+        lbl.textColor = .black
+    }
+    
     private lazy var lblId = UILabel().then { lbl in
         lbl.text = "이메일을 입력해주세요"
         lbl.font = .systemFont(ofSize: 16)
@@ -91,6 +97,12 @@ class AddView: UIView {
     
     private func setUI(){
         self.addSubview(grpLogin)
+        self.addSubview(lblTitle)
+        
+        lblTitle.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(70)
+        }
         
         txtId.snp.makeConstraints { make in
             make.width.equalTo(200)
