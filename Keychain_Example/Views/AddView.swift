@@ -118,39 +118,4 @@ class AddView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
-    
-    
-    
-    // 키체인 검색
-    private lazy var btnRetrieve = UIButton().then { btn in
-        var config = UIButton.Configuration.plain()
-        config.title = "키체인 검색"
-        config.baseBackgroundColor = .systemBlue
-        
-        btn.configuration = config
-        btn.tintColor = .black
-    }
-    
-    // 키체인 삭제
-    private lazy var btnDelete = UIButton().then { btn in
-        var config = UIButton.Configuration.plain()
-        config.title = "키체인 삭제"
-        config.baseBackgroundColor = .systemBlue
-        
-        btn.configuration = config
-        btn.tintColor = .black
-    }
-    
-    // 키체인 수정
-    private lazy var btnModify = UIButton().then { btn in
-        var config = UIButton.Configuration.plain()
-        config.title = "키체인 수정"
-        config.baseBackgroundColor = .systemBlue
-        
-        btn.configuration = config
-        btn.tintColor = .black
-    }
-    
 }
