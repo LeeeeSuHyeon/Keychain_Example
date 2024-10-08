@@ -8,11 +8,12 @@
 import UIKit
 
 class DeleteViewController: UIViewController {
+    let deleteView = DeleteView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.view = deleteView
     }
     
 
