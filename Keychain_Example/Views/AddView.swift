@@ -105,12 +105,12 @@ class AddView: UIView {
         }
         
         txtId.snp.makeConstraints { make in
-            make.width.equalTo(200)
+            make.width.equalToSuperview()
             make.height.equalTo(30)
         }
         
         txtPwd.snp.makeConstraints { make in
-            make.width.equalTo(200)
+            make.width.equalToSuperview()
             make.height.equalTo(30)
         }
         
@@ -119,9 +119,16 @@ class AddView: UIView {
             make.height.equalTo(60)
         }
         
+        grpId.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+        }
+        grpPwd.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+        }
+        
         grpLogin.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(40)
+            make.trailing.equalToSuperview().offset(-40)
             make.centerY.equalToSuperview()
         }
     }
