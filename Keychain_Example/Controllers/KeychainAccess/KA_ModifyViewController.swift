@@ -19,7 +19,7 @@ class KA_ModifyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        modifyView.lblTitle.text = "Keychain 수정 (라이브러리)"
         self.view = modifyView
         
         modifyView.btnModify.addTarget(self, action: #selector(btnModifyDidTap), for: .touchUpInside)

@@ -19,7 +19,7 @@ class KA_DeleteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        deleteView.lblTitle.text = "Keychain 삭제 (라이브러리)"
         self.view = deleteView
         deleteView.btnDelete.addTarget(self, action: #selector(btnDeleteDidTap), for: .touchUpInside)
     }

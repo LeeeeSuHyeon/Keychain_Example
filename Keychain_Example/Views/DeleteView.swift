@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class DeleteView : UIView {
-    private lazy var lblTitle = UILabel().then { lbl in
+    public lazy var lblTitle = UILabel().then { lbl in
         lbl.text = "Keychain 삭제"
-        lbl.font = .systemFont(ofSize: 32, weight: .bold)
+        lbl.font = .systemFont(ofSize: 28, weight: .bold)
         lbl.textColor = .black
     }
     
@@ -76,7 +76,7 @@ class DeleteView : UIView {
         
         lblTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(70)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20) 
         }
 
         txtId.snp.makeConstraints { make in

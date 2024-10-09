@@ -109,7 +109,7 @@ class AddView: UIView {
         
         lblTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(70)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20) 
         }
         
         txtId.snp.makeConstraints { make in
