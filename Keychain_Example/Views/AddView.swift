@@ -105,6 +105,7 @@ class AddView: UIView {
     private func setUI(){
         self.addSubview(grpLogin)
         self.addSubview(lblTitle)
+        self.backgroundColor = .white
         
         lblTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)

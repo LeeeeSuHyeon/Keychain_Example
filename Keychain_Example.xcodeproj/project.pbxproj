@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB16865A2CB50D8900809D25 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB1686592CB50D8900809D25 /* SnapKit */; };
 		CB16865D2CB50D9300809D25 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CB16865C2CB50D9300809D25 /* Then */; };
+		CBBC0BF52CB6A07900EC9E24 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = CBBC0BF42CB6A07900EC9E24 /* KeychainAccess */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			files = (
 				CB16865A2CB50D8900809D25 /* SnapKit in Frameworks */,
 				CB16865D2CB50D9300809D25 /* Then in Frameworks */,
+				CBBC0BF52CB6A07900EC9E24 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 			packageProductDependencies = (
 				CB1686592CB50D8900809D25 /* SnapKit */,
 				CB16865C2CB50D9300809D25 /* Then */,
+				CBBC0BF42CB6A07900EC9E24 /* KeychainAccess */,
 			);
 			productName = Keychain_Example;
 			productReference = CB16863C2CB50BF000809D25 /* Keychain_Example.app */;
@@ -119,6 +122,7 @@
 			packageReferences = (
 				CB1686582CB50D8900809D25 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CB16865B2CB50D9300809D25 /* XCRemoteSwiftPackageReference "Then" */,
+				CBBC0BF32CB6A07900EC9E24 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CB16863D2CB50BF000809D25 /* Products */;
@@ -364,6 +368,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		CBBC0BF32CB6A07900EC9E24 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -376,6 +388,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CB16865B2CB50D9300809D25 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		CBBC0BF42CB6A07900EC9E24 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBBC0BF32CB6A07900EC9E24 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
