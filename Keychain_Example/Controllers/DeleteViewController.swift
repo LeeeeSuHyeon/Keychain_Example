@@ -14,17 +14,21 @@ class DeleteViewController: UIViewController {
         super.viewDidLoad()
 
         self.view = deleteView
+        deleteView.btnDelete.addTarget(self, action: #selector(btnDeleteDidTap), for: .touchUpInside)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func btnDeleteDidTap() {
+        if let id = deleteView.txtId.text {
+            let check = KeychainService.shared.delete(account: id)
+            
+            // 실패 했다면
+            if check != errSecSuccess {
+                print("DeleteViewController - 키체인 삭제 실패")
+                deleteView.lblDelete.text = "키체인 삭제 실패했습니다."
+            } else {
+                deleteView.lblDelete.text = "키체인 삭제 (id : \(id))"
+            }
+        }
     }
-    */
-
+    
 }

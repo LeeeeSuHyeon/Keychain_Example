@@ -35,7 +35,7 @@ class DeleteView : UIView {
     
     public lazy var lblDelete = UILabel().then { lbl in
         lbl.text = "삭제하기 전 입니다."
-        lbl.font = .systemFont(ofSize: 16)
+        lbl.font = .systemFont(ofSize: 16, weight: .bold)
         lbl.textColor = .black
     }
     

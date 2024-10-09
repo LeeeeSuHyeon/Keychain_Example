@@ -82,7 +82,7 @@ class KeychainService {
     
     // Keychain에서 데이터를 삭제하는 함수
     @discardableResult
-    func delete(account: String, service: String) -> OSStatus {
+    func delete(account: String, service: String = "login") -> OSStatus {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,  // 비밀번호 클래스 사용
             kSecAttrAccount as String: account,             // 계정 이름
