@@ -15,7 +15,7 @@ class AllKeychainView: UIView {
     }
     
     public lazy var lblCount = UILabel().then { lbl in
-        lbl.text = ""
+        lbl.text = "전체 0개"
         lbl.font = .systemFont(ofSize: 16)
         lbl.textColor = .systemGray
     }
@@ -36,6 +36,7 @@ class AllKeychainView: UIView {
     
     private func setUI(){
         self.addSubview(lblTitle)
+        self.addSubview(lblCount)
         self.addSubview(tableView)
         
         lblTitle.snp.makeConstraints { make in
@@ -43,9 +44,15 @@ class AllKeychainView: UIView {
             make.top.equalToSuperview().offset(70)
         }
         
-        tableView.snp.makeConstraints { make in
+        lblCount.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
             make.top.equalTo(lblTitle.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview()
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(lblCount.snp.bottom).offset(30)
+            make.leading.trailing.bottom.equalToSuperview()
+            
         }
     }
 }

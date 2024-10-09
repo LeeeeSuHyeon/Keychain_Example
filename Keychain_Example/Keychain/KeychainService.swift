@@ -92,4 +92,38 @@ class KeychainService {
         // 해당하는 Keychain Item 삭제
         return SecItemDelete(query as CFDictionary)
     }
+    
+    
+    // Keychain 데이터 모두 가져오는 함수
+    @discardableResult
+    func all(service : String = "login") -> [KeychainModel]? {
+        let query : [String : Any] = [
+            kSecClass as String : kSecClassGenericPassword,
+            kSecAttrService as String : service,
+            kSecReturnAttributes as String : true,  // 속성 반환
+            kSecReturnData as String: true,         // 데이터 반환
+            kSecMatchLimit as String : kSecMatchLimitAll
+        ]
+        
+        var item : CFTypeRef?
+        let status : OSStatus = SecItemCopyMatching(query as CFDictionary, &item)
+        
+        // 검색의 성공, 실패 확인 -> 실패면 return nil
+        guard status == errSecSuccess, let data = item as? [[String: Any]] else { return nil }
+        
+        // Keychain에서 가져온 데이터를 KeychainModel로 변환
+       var keychainModels: [KeychainModel] = []
+       
+       for dic in data {
+           if let account = dic[kSecAttrAccount as String] as? String,
+              let passwordData = dic[kSecValueData as String] as? Data,
+              let password = String(data: passwordData, encoding: .utf8) {
+               let model = KeychainModel(email: account, password: password)
+               keychainModels.append(model)
+           }
+       }
+       
+       return keychainModels
+    }
+
 }

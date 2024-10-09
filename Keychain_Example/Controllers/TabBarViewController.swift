@@ -13,6 +13,7 @@ class TabBarViewController: UITabBarController {
     let deleteVC = DeleteViewController()
     let modifyVC = ModifyViewController()
     let retrieveVC = RetrieveViewController()
+    let allVC = AllKeychainViewController()
                                     
                                     
 
@@ -23,7 +24,10 @@ class TabBarViewController: UITabBarController {
         retrieveVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "plus.magnifyingglass"), tag: 1)
         modifyVC.tabBarItem = UITabBarItem(title: "수정", image: UIImage(systemName: "square.and.pencil.circle"), tag: 2)
         deleteVC.tabBarItem = UITabBarItem(title: "삭제", image: UIImage(systemName: "xmark.shield"), tag: 3)
-        self.viewControllers = [addVC, retrieveVC, modifyVC, deleteVC]
+        allVC.tabBarItem = UITabBarItem(title: "전체", image: UIImage(systemName: "list.bullet.clipboard"), tag: 4)
+        self.viewControllers = [addVC, retrieveVC, modifyVC, deleteVC, allVC]
+        
+        self.tabBar.isTranslucent = false
     }
 
 
