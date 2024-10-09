@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class RetrieveView : UIView {
-    private lazy var lblTitle = UILabel().then { lbl in
+    public lazy var lblTitle = UILabel().then { lbl in
         lbl.text = "Keychain 검색"
-        lbl.font = .systemFont(ofSize: 32, weight: .bold)
+        lbl.font = .systemFont(ofSize: 28, weight: .bold)
         lbl.textColor = .black
     }
     

@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import KeychainAccess
 
 class KA_RetrieveViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    let retrieveView = RetrieveView()
+    private let keychain = Keychain(service : "login")
 
-        // Do any additional setup after loading the view.
+    override func viewWillAppear(_ animated: Bool) {
+        initTextField()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        retrieveView.lblTitle.text = "Keychain 검색 (라이브러리)"
+        self.view = retrieveView
+        
+        // 검색 버튼 구현
+        retrieveView.btnRetrieve.addTarget(self, action: #selector(btnRetrieveDidTap), for: .touchUpInside)
     }
-    */
-
+    
+    @objc func btnRetrieveDidTap() {
+        if let id = retrieveView.txtId.text {
+            do {
+                let password = try keychain.get(id) ?? ""
+                print("password: \(password)")
+                retrieveView.txtRetrievePwd.text = password
+            } catch let error {
+                print("error: \(error)")
+                retrieveView.txtRetrievePwd.text = "검색 결과 없습니다."
+            }
+        }
+    }
+    
+    // 텍스트 필드 초기화
+    private func initTextField() {
+        retrieveView.txtId.text = ""
+        retrieveView.txtRetrievePwd.text = "검색 전입니다."
+    }
 }
