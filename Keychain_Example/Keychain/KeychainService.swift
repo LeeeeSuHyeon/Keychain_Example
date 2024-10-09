@@ -38,17 +38,23 @@ class KeychainService {
     
     // Keychain에서 데이터를 불러오는 함수
     func load(account: String, service: String = "login") -> String? {
+            // 검색할 속성 정의
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,  // 비밀번호 클래스 사용
             kSecAttrAccount as String: account,             // 계정 이름
             kSecAttrService as String: service,             // 서비스 이름
             kSecReturnData as String: true,                 // 데이터를 반환하도록 설정
+       //   kSecReturnData as String: kCFBooleanTrue!,      // 데이터를 반환하도록 설정
             kSecMatchLimit as String: kSecMatchLimitOne     // 하나의 결과만 반환
         ]
         
         var item: CFTypeRef?
-        let status = SecItemCopyMatching(query as CFDictionary, &item)
+        // var item : AnyObject? = nil
         
+        // 데이터 검색
+        let status : OSStatus = SecItemCopyMatching(query as CFDictionary, &item)
+        
+        // 검색의 성공, 실패 확인 -> 실패면 return nil
         guard status == errSecSuccess else { return nil }
         
         if let data = item as? Data, let password = String(data: data, encoding: .utf8) {

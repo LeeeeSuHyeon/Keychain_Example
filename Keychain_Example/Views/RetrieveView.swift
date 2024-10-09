@@ -33,14 +33,14 @@ class RetrieveView : UIView {
     }
     
     
-    public lazy var lblRetrieve = UILabel().then { lbl in
+    private lazy var lblRetrieve = UILabel().then { lbl in
         lbl.text = "검색된 비밀번호 입니다."
         lbl.font = .systemFont(ofSize: 16)
         lbl.textColor = .black
     }
     
     public lazy var txtRetrievePwd = UITextField().then { text in
-        text.placeholder = "검색 전입니다."
+        text.text = "검색 전입니다."
         text.layer.masksToBounds = true
         text.layer.borderWidth = 1
         text.layer.borderColor = UIColor.systemGray2.cgColor
