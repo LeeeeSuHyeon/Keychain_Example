@@ -8,9 +8,9 @@
 import UIKit
 
 class AllKeychainView: UIView {
-    private lazy var lblTitle = UILabel().then { lbl in
+    public lazy var lblTitle = UILabel().then { lbl in
         lbl.text = "등록된 Keychain"
-        lbl.font = .systemFont(ofSize: 32, weight: .bold)
+        lbl.font = .systemFont(ofSize: 28, weight: .bold)
         lbl.textColor = .black
     }
     

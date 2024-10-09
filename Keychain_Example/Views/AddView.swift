@@ -10,9 +10,9 @@ import SnapKit
 import Then
 
 class AddView: UIView {
-    private lazy var lblTitle = UILabel().then { lbl in
+    public lazy var lblTitle = UILabel().then { lbl in
         lbl.text = "Keychain 추가"
-        lbl.font = .systemFont(ofSize: 32, weight: .bold)
+        lbl.font = .systemFont(ofSize: 28, weight: .bold)
         lbl.textColor = .black
     }
     

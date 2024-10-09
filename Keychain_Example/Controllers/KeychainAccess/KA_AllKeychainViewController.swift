@@ -1,5 +1,5 @@
 //
-//  AllKeychainViewController.swift
+//  KA_AllKeychainViewController.swift
 //  Keychain_Example
 //
 //  Created by 이수현 on 10/9/24.
@@ -7,20 +7,22 @@
 
 import UIKit
 
-class AllKeychainViewController: UIViewController {
+class KA_AllKeychainViewController: UIViewController {
     private lazy var allView = AllKeychainView().then { view in
         view.tableView.delegate = self
         view.tableView.dataSource = self
     }
-    
-    lazy var keychains = KeychainService.shared.all() ?? []
 
+    lazy var keychains = KeychainService.shared.all() ?? []
+    
     override func viewWillAppear(_ animated: Bool) {
         updateKeychain()
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        allView.lblTitle.text = "전체 키체인 보기 지원하지 않음"
         self.view = allView
         updateKeychain()
         print(keychains)
@@ -32,9 +34,10 @@ class AllKeychainViewController: UIViewController {
         
         allView.lblCount.text = "전체 \(keychains.count)개"
     }
+
 }
 
-extension AllKeychainViewController : UITableViewDelegate, UITableViewDataSource {
+extension KA_AllKeychainViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return keychains.count
     }

@@ -18,6 +18,7 @@ class KA_AddViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addView.lblTitle.text = "Keychain 추가 (라이브러리)"
         self.view = addView
         
         // addView의 버튼 액션 설정
@@ -30,12 +31,12 @@ class KA_AddViewController: UIViewController {
             // 키체인 등록
             do {
                 try keychain.set(pwd, key: id)
+                print("AddViewController - Keychain 등록(id : \(id), pwd : \(pwd))")
+                initTextField(checkText: "키체인 등록 완료")
             } catch let error {
                 print("error: \(error)")
             }
-            
-            print("AddViewController - Keychain 등록(id : \(id), pwd : \(pwd))")
-            initTextField(checkText: "키체인 등록 완료")
+
 
         }
     }
