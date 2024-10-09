@@ -14,17 +14,26 @@ class ModifyViewController: UIViewController {
         super.viewDidLoad()
 
         self.view = modifyView
+        
+        modifyView.btnModify.addTarget(self, action: #selector(btnModifyDidTap), for: .touchUpInside)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func btnModifyDidTap() {
+        if let id = modifyView.txtId.text, let newPwd = modifyView.txtNewPwd.text {
+            let check = KeychainService.shared.update(account: id, newPassword: newPwd)
+            
+            if check != errSecSuccess {
+                print("ModifyViewController - update 실패")
+                modifyView.lblModify.text = "비밀번호 변경 실패"
+            } else {
+                print("ModifyViewController - update 성공")
+                print("id : \(id), newPassword : \(newPwd)")
+                modifyView.lblModify.text = "변경 성공! - id : \(id), newPassword : \(newPwd)"
+                
+                
+            }
+            
+        }
     }
-    */
 
 }

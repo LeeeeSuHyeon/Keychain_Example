@@ -66,10 +66,11 @@ class KeychainService {
     
     // Keychain에서 데이터를 업데이트하는 함수
     @discardableResult
-    func update(account: String, newPassword: String) -> OSStatus {
+    func update(account: String, service: String = "login", newPassword: String) -> OSStatus {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: account
+            kSecAttrAccount as String: account,
+            kSecAttrService as String: service
         ]
         
         let attributesToUpdate: [String: Any] = [

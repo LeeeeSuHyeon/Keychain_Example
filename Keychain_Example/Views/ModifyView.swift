@@ -52,7 +52,7 @@ class ModifyView : UIView {
     
     public lazy var lblModify = UILabel().then { lbl in
         lbl.text = "비밀번호 변경 전 입니다."
-        lbl.font = .systemFont(ofSize: 16)
+        lbl.font = .systemFont(ofSize: 16, weight: .bold)
         lbl.textColor = .black
     }
     
