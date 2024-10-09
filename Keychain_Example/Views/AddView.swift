@@ -48,6 +48,12 @@ class AddView: UIView {
         text.leftViewMode = .always
     }
     
+    public lazy var lblCheck = UILabel().then { lbl in
+        lbl.text = "키체인 등록 전입니다."
+        lbl.font = .systemFont(ofSize: 20, weight: .bold)
+        lbl.textColor = .black
+    }
+    
     private lazy var grpId = UIStackView().then { view in
         view.axis = .vertical
         view.spacing = 5
@@ -93,6 +99,7 @@ class AddView: UIView {
         grpLogin.addArrangedSubview(grpId)
         grpLogin.addArrangedSubview(grpPwd)
         grpLogin.addArrangedSubview(btnLogin)
+        grpLogin.addArrangedSubview(lblCheck)
     }
     
     private func setUI(){
