@@ -10,6 +10,9 @@ import UIKit
 class RetrieveViewController: UIViewController {
     let retrieveView = RetrieveView()
 
+    override func viewWillAppear(_ animated: Bool) {
+        initTextField()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +28,12 @@ class RetrieveViewController: UIViewController {
         } else {
             retrieveView.txtRetrievePwd.text = "검색 결과 없습니다."
         }
+    }
+    
+    // 텍스트 필드 초기화
+    private func initTextField() {
+        retrieveView.txtId.text = ""
+        retrieveView.txtRetrievePwd.text = "검색 전입니다."
     }
     
 
